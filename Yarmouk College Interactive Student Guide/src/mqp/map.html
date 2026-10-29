@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خريطة الكلية التفاعلية - كلية اليرموك</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Leaflet CSS للخريطة التفاعلية بدون الحاجة ل مفتاح API معقد -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="map-style.css">
+</head>
+<body>
+
+  <!-- شريط التنقل العلوي -->
+  <header class="top-navbar">
+    <div class="nav-container">
+      <a href="javascript:history.back()" class="back-btn" title="رجوع"><i class="fa-solid fa-chevron-right"></i></a>
+      <h1 class="page-title">خريطة الكلية التفاعلية</h1>
+      <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </header>
+
+  <!-- حاوية الخريطة والأقسام -->
+  <main class="map-page-container">
+    
+    <!-- قائمة الأقسام الجانبية للربط السريع -->
+    <aside class="locations-sidebar">
+      <h3>مواقع الأقسام والمرافق</h3>
+      <p class="sidebar-hint">اضغط على أي مكان لتحديد موقعه على الخريطة فوراً:</p>
+      
+      <div class="locations-list">
+        <div class="loc-card" data-lat="33.315" data-lng="44.366" data-title="العمادة" data-desc="بناية العمادة - الطابق الأرضي">
+          <i class="fa-solid fa-building-columns"></i>
+          <div>
+            <h4>العمادة</h4>
+            <span>بناية العمادة - الطابق الأرضي</span>
+          </div>
+        </div>
+
+        <div class="loc-card" data-lat="33.316" data-lng="44.367" data-title="قسم علوم الحاسوب" data-desc="بناية الأقسام الهندسية - الطابق الثاني">
+          <i class="fa-solid fa-desktop"></i>
+          <div>
+            <h4>علوم الحاسوب</h4>
+            <span>بناية الأقسام الهندسية</span>
+          </div>
+        </div>
+
+        <div class="loc-card" data-lat="33.314" data-lng="44.365" data-title="قسم الأمن السيبراني" data-desc="بناية التكنولوجيا - الطابق الثالث">
+          <i class="fa-solid fa-user-shield"></i>
+          <div>
+            <h4>الأمن السيبراني</h4>
+            <span>بناية التكنولوجيا</span>
+          </div>
+        </div>
+
+        <div class="loc-card" data-lat="33.3155" data-lng="44.3655" data-title="المكتبة المركزية" data-desc="بناية المكتبة - الطابق الأول">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <div>
+            <h4>المكتبة المركزية</h4>
+            <span>بناية المكتبة</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- خريطة العرض -->
+    <div id="map" class="map-view-box"></div>
+
+  </main>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="map-script.js"></script>
+</body>
+</html>

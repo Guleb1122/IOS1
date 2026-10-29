@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل الأماكن - كلية اليرموك</title>
+  
+  <!-- الخط والأيقونات -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- شريط التنقل العلوي للموقع -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <i class="fa-solid fa-location-dot logo-icon"></i>
+        <span>دليل الأماكن</span>
+      </a>
+
+      <!-- القائمة الرئيسية للتنقل -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#" class="active">الرئيسية</a></li>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#departments">الأقسام</a></li>
+        <li><a href="#facilities">المرافق</a></li>
+      </ul>
+
+      <!-- أدوات التحكم والوضع الليلي -->
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" title="تبديل الوضع">
+          <i class="fa-solid fa-sun sun-icon"></i>
+          <i class="fa-solid fa-moon moon-icon"></i>
+        </button>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- الحاوية الرئيسية لدليل الأماكن -->
+  <main class="places-container">
+    
+    <!-- قسم البحث والتبويبات -->
+    <header class="search-tabs-section">
+      <!-- مربع البحث -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="أبحث عن مكان...">
+      </div>
+
+      <!-- تبويبات الفلترة -->
+      <div class="tabs-filter">
+        <button class="tab-btn active" data-filter="all">الكل</button>
+        <button class="tab-btn" data-filter="services">خدمات</button>
+        <button class="tab-btn" data-filter="departments">أقسام</button>
+        <button class="tab-btn" data-filter="facilities">مرافق</button>
+      </div>
+    </header>
+
+    <!-- قائمة الأماكن -->
+    <section class="places-list" id="placesList">
+      
+      <!-- العمادة -->
+      <div class="place-card" 
+           data-category="departments"
+           data-title="العمادة"
+           data-location="بناية العمادة - الطابق الأرضي"
+           data-description="مكتب عميد الكلية والمعاونين العلمي والإداري. يختص بإدارة الشؤون الأكاديمية والإدارية واتخاذ القرارات الاستراتيجية الخاصة بالكلية."
+           data-link="#"
+           data-img="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=800&auto=format&fit=crop">
+        <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        <div class="place-details">
+          <h3 class="place-title">العمادة</h3>
+          <p class="place-location">بناية العمادة - الطابق الأرضي</p>
+        </div>
+        <div class="place-icon blue">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=300&auto=format&fit=crop" alt="العمادة" class="place-img">
+      </div>
+
+      <!-- التسجيل وشؤون الطلبة -->
+      <div class="place-card" 
+           data-category="services"
+           data-title="التسجيل وشؤون الطلبة"
+           data-location="بناية العمادة - الطابق الأول"
+           data-description="القسم المسؤول عن قبول الطلبة الجدد، تنظيم وثائق السجل الأكاديمي، متابعة الوثائق والشهادات وتوفير الدعم الإداري للطلاب."
+           data-link="#"
+           data-img="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop">
+        <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        <div class="place-details">
+          <h3 class="place-title">التسجيل وشؤون الطلبة</h3>
+          <p class="place-location">بناية العمادة - الطابق الأول</p>
+        </div>
+        <div class="place-icon green">
+          <i class="fa-solid fa-address-card"></i>
+        </div>
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=300&auto=format&fit=crop" alt="التسجيل" class="place-img">
+      </div>
+
+      <!-- إصدار الهوية الجامعية -->
+      <div class="place-card" 
+           data-category="services"
+           data-title="إصدار الهوية الجامعية"
+           data-location="بناية العمادة - الطابق الأرضي"
+           data-description="وحدة طباعة وإصدار الهويات الذكية للطلبة والكادر التدريسي لاستخدامها في الدخول للكلية والمرافق المختلفة."
+           data-link="#"
+           data-img="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop">
+        <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        <div class="place-details">
+          <h3 class="place-title">إصدار الهوية الجامعية</h3>
+          <p class="place-location">بناية العمادة - الطابق الأرضي</p>
+        </div>
+        <div class="place-icon purple">
+          <i class="fa-solid fa-id-card"></i>
+        </div>
+        <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=300&auto=format&fit=crop" alt="الهوية" class="place-img">
+      </div>
+
+      <!-- المكتبة -->
+      <div class="place-card" 
+           data-category="facilities"
+           data-title="المكتبة"
+           data-location="بناية المكتبة - الطابق الأول"
+           data-description="تحتوي المكتبة المركزية على آلاف المصادر والمراجع العلمية الورقية والرقمية مع قاعات مخصصة للمطالعة والدراسة الهادئة."
+           data-link="#"
+           data-img="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=800&auto=format&fit=crop">
+        <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        <div class="place-details">
+          <h3 class="place-title">المكتبة</h3>
+          <p class="place-location">بناية المكتبة - الطابق الأول</p>
+        </div>
+        <div class="place-icon orange">
+          <i class="fa-solid fa-book-bookmark"></i>
+        </div>
+        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=300&auto=format&fit=crop" alt="المكتبة" class="place-img">
+      </div>
+
+      <!-- النادي الطلابي -->
+      <div class="place-card" 
+           data-category="facilities"
+           data-title="النادي الطلابي"
+           data-location="بناية الأنشطة - الطابق الأرضي"
+           data-description="مساحة ترفيهية واجتماعية للطلاب تتضمن كافتيريا ووجبات سريعة وجلسات للاستراحة وتجمعات الأنشطة الطلابية."
+           data-link="#"
+           data-img="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop">
+        <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        <div class="place-details">
+          <h3 class="place-title">النادي الطلابي</h3>
+          <p class="place-location">بناية الأنشطة - الطابق الأرضي</p>
+        </div>
+        <div class="place-icon purple">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=300&auto=format&fit=crop" alt="النادي الطلابي" class="place-img">
+      </div>
+
+      <!-- مبنى قسم علوم الحاسوب -->
+      <div class="place-card" 
+           data-category="departments"
+           data-title="مبنى قسم علوم الحاسوب"
+           data-location="بناية الأقسام الهندسية - الطابق الثاني"
+           data-description="يضم القاعات الدراسية لقسم علوم الحاسوب والمختبرات البرمجية ومختبرات الذكاء الاصطناعي ومكاتب أعضاء الهيئة التدريسية."
+           data-link="#"
+           data-img="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop">
+        <i class="fa-solid fa-chevron-left arrow-icon"></i>
+        <div class="place-details">
+          <h3 class="place-title">مبنى قسم علوم الحاسوب</h3>
+          <p class="place-location">بناية الأقسام الهندسية - الطابق الثاني</p>
+        </div>
+        <div class="place-icon blue">
+          <i class="fa-solid fa-laptop-code"></i>
+        </div>
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=300&auto=format&fit=crop" alt="علوم الحاسوب" class="place-img">
+      </div>
+
+    </section>
+  </main>
+
+  <!-- خلفية معتمة -->
+  <div class="info-overlay" id="infoOverlay"></div>
+
+  <!-- لوحة معلومات المكان (تختلف في الحاسوب عن الهاتف) -->
+  <aside class="info-drawer" id="infoDrawer">
+    <div class="drawer-header">
+      <button class="close-drawer-btn" id="closeDrawerBtn"><i class="fa-solid fa-xmark"></i></button>
+      <span class="drawer-category" id="drawerCategory">قسم</span>
+    </div>
+
+    <div class="drawer-content">
+      <!-- صورة المكان التي تظهر عند الضغط -->
+      <img src="" alt="" class="drawer-img" id="drawerImg">
+      
+      <h2 class="drawer-title" id="drawerTitle">اسم المكان</h2>
+      <p class="drawer-location" id="drawerLocation"><i class="fa-solid fa-location-dot"></i> <span>الموقع</span></p>
+
+      <div class="drawer-section">
+        <h4><i class="fa-solid fa-circle-info"></i> وصف المكان</h4>
+        <p class="drawer-description" id="drawerDescription">وصف المكان هنا...</p>
+      </div>
+
+      <!-- زر الانتقال (يمكنك تعديل الرابط لاحقاً) -->
+      <a href="#" class="action-btn" id="drawerLinkBtn">
+        <span>الانتقال إلى التفاصيل</span>
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+:root {
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --header-bg: #0f2337;
+  --border-color: #e2e8f0;
+  --accent-color: #0284c7;
+}
+
+body.dark-mode {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --header-bg: #0b1329;
+  --border-color: #334155;
+  --accent-color: #38bdf8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-primary); min-height: 100vh; }
+
+.top-navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--header-bg); color: #fff; z-index: 1000; height: 60px; }
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 100%; display: flex; justify-content: space-between; align-items: center; }
+.back-btn, .theme-toggle { background: none; border: none; color: #fff; font-size: 1.1rem; cursor: pointer; }
+.page-title { font-size: 1.1rem; font-weight: 700; }
+
+.map-page-container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+}
+
+.locations-sidebar {
+  background-color: var(--card-bg);
+  border-left: 1px solid var(--border-color);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.locations-sidebar h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 5px; }
+.sidebar-hint { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 15px; }
+
+.locations-list { display: flex; flex-direction: column; gap: 10px; }
+
+.loc-card {
+  display: flex; align-items: center; gap: 12px;
+  background-color: var(--bg-color); border: 1px solid var(--border-color);
+  padding: 12px; border-radius: 12px; cursor: pointer; transition: all 0.2s;
+}
+
+.loc-card:hover, .loc-card.active {
+  border-color: var(--accent-color);
+  background-color: rgba(2, 132, 199, 0.05);
+}
+
+.loc-card i {
+  width: 38px; height: 38px; background-color: #e0f2fe; color: #0284c7;
+  border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem;
+}
+
+.loc-card h4 { font-size: 0.92rem; font-weight: 800; margin-bottom: 2px; }
+.loc-card span { font-size: 0.78rem; color: var(--text-secondary); }
+
+.map-view-box { width: 100%; height: 100%; z-index: 1; }
+
+@media (max-width: 768px) {
+  .map-page-container { grid-template-columns: 1fr; grid-template-rows: 250px 1fr; }
+  .locations-sidebar { border-left: none; border-bottom: 1px solid var(--border-color); }
+}

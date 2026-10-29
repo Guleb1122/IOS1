@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منشئ الجدول الدراسي - كلية اليرموك</title>
+  
+  <!-- الخط والأيقونات -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="timetable-style.css">
+  
+  <!-- GSAP Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- شريط التنقل العلوي -->
+  <header class="top-navbar">
+    <div class="nav-container">
+      <a href="javascript:history.back()" class="back-btn" title="رجوع">
+        <i class="fa-solid fa-chevron-right"></i>
+      </a>
+      
+      <h1 class="page-title">جدولي الدراسي</h1>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="تبديل الوضع">
+          <i class="fa-solid fa-sun sun-icon"></i>
+          <i class="fa-solid fa-moon moon-icon"></i>
+        </button>
+
+        <button class="menu-btn" id="menuToggle" title="القائمة">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- القائمة الجانبية (الهامبرغر) -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <aside class="sidebar-menu" id="sidebarMenu">
+    <div class="sidebar-header">
+      <h3>أقسام الكلية والدليل</h3>
+      <button class="close-sidebar-btn" id="closeSidebarBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="sidebar-departments-list">
+      <li>
+        <a href="/src/index.html" class="sidebar-dept-item">
+          <div class="dept-sm-icon"><i class="fa-solid fa-house"></i></div>
+          <span>الرئيسية</span>
+        </a>
+      </li>
+      <li>
+        <a href="department.html?dept=cs" class="sidebar-dept-item">
+          <div class="dept-sm-icon"><i class="fa-solid fa-desktop"></i></div>
+          <span>علوم الحاسوب</span>
+        </a>
+      </li>
+      <li>
+        <a href="subjects.html" class="sidebar-dept-item">
+          <div class="dept-sm-icon"><i class="fa-solid fa-book-open"></i></div>
+          <span>المواد الدراسية</span>
+        </a>
+      </li>
+      <li>
+        <a href="timetable.html" class="sidebar-dept-item active">
+          <div class="dept-sm-icon"><i class="fa-solid fa-calendar-days"></i></div>
+          <span>جدولي الدراسي</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- الحاوية الرئيسية -->
+  <main class="timetable-container">
+    
+    <!-- أدوات إضافة محاضرة جديدة -->
+    <section class="builder-card">
+      <h2 class="card-title"><i class="fa-solid fa-plus-circle"></i> إضافة محاضرة للجدول</h2>
+      
+      <form id="addLectureForm" class="lecture-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>اختر القسم</label>
+            <select id="deptSelect">
+              <option value="cs">علوم الحاسوب</option>
+              <option value="cyber">الأمن السيبراني</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>المرحلة الدراسية</label>
+            <select id="stageSelect">
+              <option value="1">المرحلة الأولى</option>
+              <option value="2">المرحلة الثانية</option>
+              <option value="3">المرحلة الثالثة</option>
+              <option value="4">المرحلة الرابعة</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>المادة الدراسية</label>
+            <select id="subjectSelect">
+              <!-- يتغير حسب القسم والمرحلة -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>اليوم</label>
+            <select id="daySelect">
+              <option value="الأحد">الأحد</option>
+              <option value="الإثنين">الإثنين</option>
+              <option value="الثلاثاء">الثلاثاء</option>
+              <option value="الأربعاء">الأربعاء</option>
+              <option value="الخميس">الخميس</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>الوقت</label>
+            <select id="timeSelect">
+              <option value="08:30 ص - 10:30 ص">08:30 ص - 10:30 ص</option>
+              <option value="10:30 ص - 12:30 م">10:30 ص - 12:30 م</option>
+              <option value="12:30 م - 02:30 م">12:30 م - 02:30 م</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>القاعة / المختبر</label>
+            <input type="text" id="hallInput" placeholder="مثال: القاعة 3 / مختبر 2" required>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <i class="fa-solid fa-calendar-plus"></i> إضافة إلى الجدول
+        </button>
+      </form>
+    </section>
+
+    <!-- عرض وتصدير الجدول الدراسي -->
+    <section class="timetable-display-card" id="printableTableCard">
+      <div class="table-header-actions">
+        <div class="header-info">
+          <h3>جدولي الأسبوعي</h3>
+          <p id="tableSubInfo">كلية اليرموك الجامعة</p>
+        </div>
+        <div class="action-buttons">
+          <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> طباعة / حفظ PDF
+          </button>
+          <button class="clear-btn" id="clearScheduleBtn">
+            <i class="fa-solid fa-trash-can"></i> مسح الجدول
+          </button>
+        </div>
+      </div>
+
+      <!-- الجدول التفاعلي -->
+      <div class="table-responsive-wrapper">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>اليوم</th>
+              <th>المادة الدراسية</th>
+              <th>التوقيت</th>
+              <th>القاعة / المكان</th>
+              <th>إجراء</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleTableBody">
+            <!-- يتم تعبئة المحاضرات ديناميكياً -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="timetable-script.js"></script>
+</body>
+</html>

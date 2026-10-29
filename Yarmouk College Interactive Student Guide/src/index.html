@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل طالب كلية اليرموك</title>
+  
+  <!-- الخط والأيقونات -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- GSAP Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- شريط التنقل العلوي للموقع (Full-Width Navbar) -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- اللوغو والاسم -->
+      <a href="#" class="brand-logo">
+        <i class="fa-solid fa-graduation-cap logo-icon"></i>
+        <span>دليل طالب اليرموك</span>
+      </a>
+
+      <!-- قائمة التنقل الأساسية بين الأقسام (تظهر في الحاسوب) -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="active">الرئيسية</a></li>
+        <li><a href="#quick-access">الخدمات السريعة</a></li>
+        <li><a href="#departments">أقسام الكلية</a></li>
+        <li><a href="/src/subjects/subjects.html">المكتبة والملفات</a></li>
+        <li><a href="/src/localStorage/timetable.html">الجداول الدراسية</a></li>
+        <li><a href="#map">الخريطة التفاعلية</a></li>
+        <li><a href="../src/secsshen2/index.html">دليل الأماكن</a></li>
+      </ul>
+
+      <!-- أزرار التحكم والوضع الليلي -->
+      <div class="nav-controls">
+        <!-- زر التبديل بين الليل والنهار -->
+        <button class="theme-toggle" id="themeToggle" title="تبديل الوضع">
+          <i class="fa-solid fa-sun sun-icon"></i>
+          <i class="fa-solid fa-moon moon-icon"></i>
+        </button>
+
+        <!-- زر القائمة للهواتف (Hamburger Menu) -->
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- القسم الرئيسي (Hero Section) بشاشة كاملة -->
+  <section class="hero-section" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="welcome-text">مرحباً بك في</p>
+      <h1 class="college-title">دليل طالب كلية اليرموك</h1>
+      <p class="sub-text">اكتشف كليتك بسهولة .. وابدأ رحلتك الأكاديمية بثقة</p>
+      
+      <!-- شريط البحث -->
+      <div class="search-box">
+        <input type="text" placeholder="ابحث عن مكان، قسم، أو خدمة...">
+        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- محتوى الموقع الرئيسي -->
+  <main class="main-container">
+    
+    <!-- قسم الوصول السريع -->
+    <section class="section-block" id="quick-access">
+      <div class="quick-nav">
+        <a href="/src/localStorage/timetable.html" class="nav-card">
+          <div class="icon-wrapper purple">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <span>المكتبة والملفات</span>
+        </a>
+
+        <a href="/src/localStorage/timetable.html" class="nav-card">
+          <div class="icon-wrapper orange">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <span>الجداول الدراسية</span>
+        </a>
+
+        <a href="../src/department/department.html" class="nav-card">
+          <div class="icon-wrapper green">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <span>الأقسام الدراسية</span>
+        </a>
+
+        <a href="#map" class="nav-card">
+          <div class="icon-wrapper blue">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <span>الخريطة التفاعلية</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- قسم أقسام الكلية -->
+    <section class="section-block" id="departments">
+      <h2 class="section-title">أقسام الكلية</h2>
+      <div class="departments-grid">
+        
+        <div class="dept-card">
+          <i class="fa-solid fa-chevron-left arrow-icon"></i>
+          <div class="dept-info">
+            <a href="/src/department/department.html"><span class="dept-name">علوم الحاسوب</span></a>
+            <div class="dept-icon"><i class="fa-solid fa-desktop"></i></div>
+          </div>
+        </div>
+        
+
+        <div class="dept-card">
+          <i class="fa-solid fa-chevron-left arrow-icon"></i>
+          <div class="dept-info">
+            <a href="../src/department/department.html"><span class="dept-name">الأمن السيبراني</span></a>
+            <div class="dept-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          </div>
+        </div>
+
+        <div class="dept-card">
+          <i class="fa-solid fa-chevron-left arrow-icon"></i>
+          <div class="dept-info">
+           <a href="/src/department/department.html"> <span class="dept-name">هندسة ذكاء الاصطناعي</span></a>
+            <div class="dept-icon"><i class="fa-solid fa-brain"></i></div>
+          </div>
+        </div>
+
+        <div class="dept-card">
+          <i class="fa-solid fa-chevron-left arrow-icon"></i>
+          <div class="dept-info">
+            <a href="/src/department/department.html"><span class="dept-name">هندسة ليزر</span></a>
+            <div class="dept-icon"><i class="fa-solid fa-desktop"></i></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- الشريط السفلي (Footer Status Bar) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="status-indicator">
+        <span class="dot green"></span>
+        <span class="status-text">متصل بالإنترنت</span>
+      </div>
+
+      <div class="offline-toggle">
+        <span class="label">يمكن العمل بدون إنترنت</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
